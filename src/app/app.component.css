@@ -1,0 +1,14 @@
+.workspace {
+  display: flex;
+  justify-content: flex-start;
+}
+
+app-toolbar {
+  border: 1px solid black;
+  width: 30%;
+}
+
+app-hex-map {
+  border: 1px solid black;
+  width: 70%;
+}

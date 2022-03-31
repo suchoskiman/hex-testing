@@ -1,0 +1,7 @@
+.tool-selector {
+  display: flex;
+}
+
+.tool-selector > * {
+  width: 33%;
+}
