@@ -6,6 +6,7 @@ import { HexMapComponent } from './hex-map/hex-map.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ToolSelectorButtonComponent } from './tool-selector-button/tool-selector-button.component';
 import { TerrainSelectorButtonComponent } from './terrain-selector-button/terrain-selector-button.component';
+import { TerrainComponent } from './terrain/terrain.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TerrainSelectorButtonComponent } from './terrain-selector-button/terrai
     HexMapComponent,
     ToolbarComponent,
     ToolSelectorButtonComponent,
-    TerrainSelectorButtonComponent
+    TerrainSelectorButtonComponent,
+    TerrainComponent
   ],
   imports: [
     BrowserModule

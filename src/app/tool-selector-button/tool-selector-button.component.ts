@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { tool, tool_key } from '../dnd/tools';
 
 @Component({
   selector: 'app-tool-selector-button',
@@ -6,7 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tool-selector-button.component.css']
 })
 export class ToolSelectorButtonComponent implements OnInit {
-  @Input() selectorName?: string;
+  @Input() selectorName: string = '';
+  @Input() selectorType: tool_key = 'HS_NOTOOL';
+  @Output() toolChangeEvent: EventEmitter<tool> = new EventEmitter<tool>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -14,6 +18,7 @@ export class ToolSelectorButtonComponent implements OnInit {
 
   onClick(): void {
     console.log("In " + this.selectorName + " selector!");
+    this.toolChangeEvent.emit(tool[this.selectorType]);
   }
 
 }

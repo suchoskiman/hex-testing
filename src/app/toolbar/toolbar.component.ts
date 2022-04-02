@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tools } from '../dnd/tools';
+import { tool, tool_key } from '../dnd/tools';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,10 +7,15 @@ import { tools } from '../dnd/tools';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  private selectedTool: tools = tools.HS_TERRAIN;
+  selectedTool: tool = tool.HS_TERRAIN;
+  toolList: string[] = ['terrain', 'locations', 'entries'];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onToolSelected(value: tool): void {
+    console.log("[TOOLBAR] Got Event: " + value);
+    this.selectedTool = value;
+  }
 }

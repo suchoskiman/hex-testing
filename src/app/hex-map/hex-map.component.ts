@@ -21,8 +21,8 @@ export class HexMapComponent implements OnInit, AfterViewInit {
   hexes: Hex[] = [];
 
   // grid info
-  numColumns: number = 66;
-  numRows: number = 46;
+  numColumns: number = 50;
+  numRows: number = 30;
 
   // mouse dragging stuff
   mouseDown: vec2 = { x: 0, y: 0};

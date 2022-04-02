@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
-import { tools } from './dnd/tools';
+import { EventEmitter, Injectable } from '@angular/core';
+import { tool } from './dnd/tools';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ToolService {
-  toolList?: tools[];
+export class ToolService{
+  tool: string = '';
   constructor() {
     
   }
+
+
 }

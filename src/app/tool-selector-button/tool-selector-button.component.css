@@ -1,0 +1,8 @@
+.selector-button {
+    justify-content: center;
+    width: 100%;
+}
+
+.selector-button:active {
+    background-color: white;
+}

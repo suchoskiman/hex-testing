@@ -1,5 +1,11 @@
 <div class="tool-selector">
-  <app-tool-selector-button selectorName="Terrain"></app-tool-selector-button>
-  <app-tool-selector-button selectorName="Locations"></app-tool-selector-button>
-  <app-tool-selector-button selectorName="Entries"></app-tool-selector-button>
+  <app-tool-selector-button selectorName="Terrain" selectorType='HS_TERRAIN' (toolChangeEvent)="onToolSelected($event)"></app-tool-selector-button>
+  <app-tool-selector-button selectorName="Locations" selectorType='HS_LOCATIONS' (toolChangeEvent)="onToolSelected($event)"></app-tool-selector-button>
+  <app-tool-selector-button selectorName="Entries" selectorType='HS_ENTRIES' (toolChangeEvent)="onToolSelected($event)"></app-tool-selector-button>
+</div>
+
+<div class="tool-section">
+  <app-terrain *ngIf="selectedTool === 0"></app-terrain>
+  <h1 *ngIf="selectedTool === 1">In tool Locations</h1>
+  <h1 *ngIf="selectedTool === 2">In tool Entries</h1>
 </div>
