@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { tool } from './dnd/tools';
+import { tool } from '../dnd/tools';
 
 @Injectable({
   providedIn: 'root'

@@ -14,7 +14,7 @@ export class Hex implements Drawable {
   num_verts: number = 6;
 
   // drawing and state info
-  color: string = 'green';
+  color: string = 'White';
   selected: boolean = false;
 
   constructor() {

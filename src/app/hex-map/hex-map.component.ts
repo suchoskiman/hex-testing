@@ -5,6 +5,7 @@ import { Hex } from 'src/render/drawable';
 import { vec2 } from 'src/render/math';
 import { CollisionService } from '../collision.service';
 import { HexSelectorService } from '../hex-selector.service';
+import { TerrainService } from '../terrain.service';
 
 @Component({
   selector: 'app-hex-map',
@@ -32,6 +33,7 @@ export class HexMapComponent implements OnInit, AfterViewInit {
 
 
   constructor(private renderer: RendererService,
+              private terrainSelector: TerrainService,
               private collider: CollisionService,
               private selector: HexSelectorService) {
     for (let col = 0; col < this.numColumns; col++) {
@@ -59,7 +61,7 @@ export class HexMapComponent implements OnInit, AfterViewInit {
     console.log('GOT THE CONTEXT BOI');
     this.hexes.forEach(element => {
       if (!this.ctx || !this.screen) return;
-      this.renderer.draw(this.ctx, element, this.cam, this.screen, element.selected, element.color);
+      this.renderer.draw(this.ctx, element, this.cam, element.selected, this.screen, element.color);
     });
   }
 
@@ -77,8 +79,8 @@ export class HexMapComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < this.hexes.length; i++) {
       if (this.collider.checkCircleCollision(this.hexes[i].center, this.hexes[i].scale,
         this.cam.fromCameraSpace(this.screen!.fromPixelSpace({ x: event.offsetX, y: event.offsetY })))) {
+        this.hexes[i].color = this.terrainSelector.getSelectedColor();
         console.log('Hex[' + i + '] selected!');
-        this.hexes[i].selected = !this.hexes[i].selected;
         changed = true;
       }
     }
@@ -87,7 +89,7 @@ export class HexMapComponent implements OnInit, AfterViewInit {
       this.ctx?.clearRect(0, 0, this.screen!.dimensions.x, this.screen!.dimensions.y);
       this.hexes.forEach(element => {
         if (!this.ctx || !this.screen) return;
-        this.renderer.draw(this.ctx, element, this.cam, this.screen, element.selected, element.color);
+        this.renderer.draw(this.ctx, element, this.cam, element.selected, this.screen, element.color);
       });
     }
 

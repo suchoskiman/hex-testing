@@ -10,7 +10,7 @@ export class RendererService {
 
   constructor() { }
 
-  draw(ctx: CanvasRenderingContext2D, obj: Drawable, cam: Camera, screen: MyScreen, sel: boolean, color: string): void {
+  draw(ctx: CanvasRenderingContext2D, obj: Drawable, cam: Camera, sel: boolean, screen: MyScreen, color: string): void {
     console.log('IN DRAW');
 
     let verts = obj.getVertices();
@@ -26,11 +26,11 @@ export class RendererService {
     }
     ctx.lineTo(start.x, start.y);
     ctx.closePath();
-    if (sel) {
-      console.log('\thex is rendering ' + color);
-      ctx.fillStyle = color;
-      ctx.fill();
-    }
+    console.log('\thex is rendering ' + color);
+    ctx.fillStyle = color;
+    ctx.fill();
+    if (sel) ctx.strokeStyle = 'Red';
     ctx.stroke();
+    ctx.strokeStyle = 'black';
   }
 }

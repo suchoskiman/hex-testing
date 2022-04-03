@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { tool, tool_key } from '../dnd/tools';
+import { tool, tool_key } from '../../dnd/tools';
 
 @Component({
   selector: 'app-tool-selector-button',
