@@ -11,7 +11,7 @@ export class RendererService {
   constructor() { }
 
   draw(ctx: CanvasRenderingContext2D, obj: Drawable, cam: Camera, sel: boolean, screen: MyScreen, color: string): void {
-    console.log('IN DRAW');
+    //console.log('IN DRAW');
 
     let verts = obj.getVertices();
     
@@ -26,7 +26,7 @@ export class RendererService {
     }
     ctx.lineTo(start.x, start.y);
     ctx.closePath();
-    console.log('\thex is rendering ' + color);
+    //console.log('\thex is rendering ' + color);
     ctx.fillStyle = color;
     ctx.fill();
     if (sel) ctx.strokeStyle = 'Red';

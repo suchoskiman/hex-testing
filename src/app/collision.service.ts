@@ -26,7 +26,7 @@ export class CollisionService {
 
   checkCircleCollision(center: vec2, radius: number, v: vec2): boolean {
     let v_c: vec2 = { x: v.x - center.x, y: v.y - center.y };
-    if (Math.sqrt(Math.pow(v_c.x, 2) + Math.pow(v_c.y, 2)) < radius) return true;
+    if (Math.sqrt(Math.pow(v_c.x, 2) + Math.pow(v_c.y, 2)) < Math.cos(Math.PI / 4) * radius) return true;
     return false;
   }
 }

@@ -26,7 +26,7 @@ export class HexMapComponent implements OnInit, AfterViewInit {
   numRows: number = 30;
 
   // mouse dragging stuff
-  mouseDown: vec2 = { x: 0, y: 0};
+  mouseDown: vec2 = { x: 0, y: 0 };
   isMousePressed: boolean = false;
   inMove: boolean = false;
   lastMove: vec2 = { x: 0, y: 0 };
@@ -95,6 +95,10 @@ export class HexMapComponent implements OnInit, AfterViewInit {
 
     //this.isMousePressed = false;
     //this.inMove = false;
+  }
+
+  onMouseDrag(event: MouseEvent): void {
+    console.log('Mouse was dragged!');
   }
 
   onMouseMove(event: MouseEvent): void {
